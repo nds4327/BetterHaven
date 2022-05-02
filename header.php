@@ -1,4 +1,6 @@
 <?php
+
+    //Starts a session on server to allow connection to database and local host on Apache
     session_start();
 ?>
 
@@ -15,10 +17,16 @@
 <body>
 
     <nav>
+        <!-- Logo at top of page -->
         <p>BetterHaven</p>
+        <!-- Beginning of header -->
+        
         <ul>
+        <!-- PHP to show different components of web site based on whether user is logged in or not -->
         <?php
+            //Activates if user is logged into session with their User ID
             if(isset($_SESSION["useruid"])){
+                //Command to create list of different site navigation tabs
                 echo 
                 
                 "<li><a href='index.php'>Home</a>
@@ -140,7 +148,7 @@
 
             echo "<li><a href='includes/logout.inc.php'>Logout</a></li>";
             
-            
+            //Executes if user is not logged in: still shows Home, Admissions, Registrar, and Parent info
             }else{
 
                 echo 
@@ -181,11 +189,11 @@
 
                 <li><a href='#'>myHaven Help</a></li>";
 
+
+                // Includes the login bar so users can log in 
                 include_once 'login.php';
 
-                // echo "<li><a href='signup.php'>Sign up</a></li>";
-                    
-                // echo "<li><a href='login.php'>Login</a></li>";
+                
             }
 
             ?>
