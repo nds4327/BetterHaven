@@ -10,7 +10,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="index.css">
+    <link rel="stylesheet" type="text/css" href="format.css">
+    <script src="index.js" defer></script>
 
     <title>Document</title>
 </head>
@@ -24,8 +25,10 @@
         <ul>
         <!-- PHP to show different components of web site based on whether user is logged in or not -->
         <?php
+       
             //Activates if user is logged into session with their User ID
             if(isset($_SESSION["useruid"])){
+                $name = $_SESSION["useruid"];
                 //Command to create list of different site navigation tabs
                 echo 
                 
@@ -78,11 +81,11 @@
                 </ul>
 
             </li>
-            <li><a href='#'>Student</a>
+            <li><a href='student.php'>Student</a>
                 <ul>
                     <li><a href='#'>Academic Information</a></li>
                     <li><a href='#'>Degree Information</a></li>
-                    <li><a href='#'>Course Schedule and Registration</a></li>
+                    <li><a href='course_list.php'>Course Schedule and Registration</a></li>
                     <li><a href='#'>Housing and Dining Self Service</a></li>
                     <li><a href='#'>National Student Clearinghouse</a></li>
                     <li><a href='#'>Student myHaven Help</a></li>
@@ -202,30 +205,15 @@
             
             </ul>
     </nav>
+
+
+<?php
+
+include_once 'footer.php';
+
     
-</body>
-</html>
+?>
 
 
 
 
-
-
-
-
-
-
-
-
-
-<!-- 
-
-<nav>
-    <div>
-        <a href="index.php"></a>
-        <ul>
-            
-            
-        </ul>
-    </div>
-</nav> -->
