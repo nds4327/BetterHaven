@@ -7,6 +7,10 @@ include_once 'header.php';
 include_once 'includes/dbh.inc.php';
 
 
+if(!isset($_SESSION["useruid"])){
+    header("Location: index.php");
+}
+
 $mysqli = new mysqli("localhost", "root", "", "better_haven");
 
 $result = $mysqli->query("SELECT usersName FROM users WHERE usersUid='$name'");
@@ -14,7 +18,12 @@ $row = $result->fetch_assoc();
 $welcome_name = $row['usersName'];
 
 
-echo "<h1> Course Schedule for ".$welcome_name."</h1>";
+echo "<div class = 'center-info'><h1> Course Schedule for ".$welcome_name."</h1></div>";
+
+
+// echo $_SESSION['time'];
+
+
 
 
 ?>
@@ -22,7 +31,7 @@ echo "<h1> Course Schedule for ".$welcome_name."</h1>";
 
 
 
-<table>
+<table id='student-manifest'>
     <tr>
         <th>Course</th>
         <th>Title</th>
@@ -57,11 +66,20 @@ echo "<h1> Course Schedule for ".$welcome_name."</h1>";
     </tr>
 </table>
 
+<form action="course_list.php" class="button">
+    <input type="submit" value="Search Courses" />
+</form>
+
 <?php
 
 include_once 'footer.php';
 
 ?>
+
+
+
+
+
 
 
 
